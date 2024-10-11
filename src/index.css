@@ -1,13 +1,181 @@
-body {
+/* Reset and global styles */
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  font-family: "Mabry Pro", sans-serif;
+  color: #FFF;
+  overflow: hidden; /* Prevent default browser scroll */
+}
+
+/* Scroll container setup */
+[data-scroll-container] {
+  position: relative;
+  height: 100%;
+}
+
+[data-scroll-section] {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Image styling */
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Hero section */
+.hero {
+  height: 100vh;
+}
+
+.hero .img {
+  width: 50%;
+  aspect-ratio: 1;
+}
+
+/* Main content area */
+.main {
+  width: 100vw;
+  height: 150vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Rows and cards */
+.row {
+  position: relative;
+  width: 100vw;
+  margin: 1em 0;
+  display: flex;
+  justify-content: center;
+  gap: 2em;
+}
+
+.card {
+  width: 40%;
+  height: 360px;
+  border-radius: 0.75em;
+  overflow: hidden;
+  will-change: transform;
+}
+
+.main-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+/* Logo styling */
+.logo {
+  width: 150px;
+  height: 150px;
+  border: 2px solid #FFF;
+  border-radius: 100%;
+  overflow: hidden;
+  transform: scale(0); /* Can be animated later */
+}
+
+/* Text content and animation setup */
+.copy {
+  margin: 2em 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.line {
+  margin: 0.5em 0;
+  width: max-content;
+  height: 28px;
+}
+
+.line p {
+  font-size: 24px;
+  transform: translateY(30px); /* Can be animated later */
+}
+
+/* Button styles */
+button {
+  padding: 1em 2em;
+  font-size: 18px;
+  color: #FFF;
+  background-color: transparent;
+  border: 2px solid #FFF;
+  border-radius: 8em;
+  transform: translateY(30px);
+  opacity: 0; /* Initially hidden, can animate in */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Footer section */
+.footer {
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.footerLink {
+  font-size: 4vw;
+  color: #FFF;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footerLink:hover {
+  color: #ccc;
+}
+
+/* Media queries for responsive design */
+@media (max-width: 900px) {
+  .card {
+    width: 50%;
+    height: 240px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero .img {
+    width: 80%;
+  }
+
+  .logo {
+    width: 100px;
+    height: 100px;
+  }
+
+  button {
+    padding: 0.75em 1.5em;
+    font-size: 16px;
+  }
+
+  .footerLink {
+    font-size: 6vw;
+  }
 }
